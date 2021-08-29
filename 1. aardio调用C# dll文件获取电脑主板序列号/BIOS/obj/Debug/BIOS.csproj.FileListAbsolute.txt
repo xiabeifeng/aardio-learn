@@ -1,0 +1,6 @@
+E:\svn_client\BIOS\obj\Debug\BIOS.csproj.AssemblyReference.cache
+E:\svn_client\BIOS\obj\Debug\BIOS.csproj.CoreCompileInputs.cache
+E:\svn_client\BIOS\bin\Debug\BIOS.dll
+E:\svn_client\BIOS\bin\Debug\BIOS.pdb
+E:\svn_client\BIOS\obj\Debug\BIOS.dll
+E:\svn_client\BIOS\obj\Debug\BIOS.pdb

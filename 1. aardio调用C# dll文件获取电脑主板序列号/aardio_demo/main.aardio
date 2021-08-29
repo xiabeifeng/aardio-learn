@@ -1,0 +1,27 @@
+import win.ui;
+/*DSG{{*/
+mainForm = win.form(text="aardio_demo";right=959;bottom=591)
+mainForm.add()
+/*}}*/
+
+// 调用C# dll文件获取主板序列号
+getBIOSSerialNumber = function() {
+	var serialNumber = "";
+	
+	// 调用C#程序集 
+	import dotNet; 
+	var appDomain = dotNet.clr().createAppDomain();
+		
+	// 加载dll文件
+	var bios = appDomain.loadFile($"/BIOS.dll");
+	serialNumber = bios.new("BIOS").GetBIOSSerialNumber();
+		
+	return serialNumber;
+};
+
+// 获取主板序列号
+var serialNumber = getBIOSSerialNumber();
+mainForm.msgbox("主板序列号：" + serialNumber);
+
+mainForm.show();
+return win.loopMessage();
