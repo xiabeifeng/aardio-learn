@@ -10,7 +10,7 @@ getBIOSSerialNumber = function() {
 	
 	// 调用C#程序集 
 	import dotNet; 
-	var appDomain = dotNet.clr().createAppDomain();
+	var appDomain = dotNet.appDomain();
 		
 	// 加载dll文件
 	var bios = appDomain.loadFile($"/BIOS.dll");
