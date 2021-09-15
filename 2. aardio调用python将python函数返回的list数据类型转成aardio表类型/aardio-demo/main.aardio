@@ -1,0 +1,34 @@
+import win.ui;
+/*DSG{{*/
+mainForm = win.form(text="调用python函数将python函数返回的list类型转成aardio的table类型";right=607;bottom=455)
+mainForm.add(
+button={cls="button";text="调用python函数将python函数返回的list类型转成aardio的table类型";left=328;top=176;right=456;bottom=248;ah=1;aw=1;z=2};
+richedit={cls="richedit";left=48;top=40;right=240;bottom=400;edge=1;multiline=1;z=1}
+)
+/*}}*/
+
+import py;
+
+var pyCode = /**
+def get_name():
+	return ["张三", "李四", "王五", "赵六", "田七", "朱八"]
+**/;
+py.exec(pyCode);
+
+mainForm.button.oncommand = function(id, event){
+	// 将调用python函数返回的list转成aardio的table
+	var nameTable = py.main.get_name().parseValue();
+	
+	// 弹窗显示nameTable的内容
+	mainForm.msgbox(nameTable);
+	
+	for (i = 1; #nameTable; 1) {
+		// 获取nameTable的每一个值, 并写入richedit中
+		var val = nameTable[i];
+		mainForm.richedit.text += val;
+		mainForm.richedit.text += '\n';
+	}
+}
+
+mainForm.show();
+return win.loopMessage();
